@@ -1,0 +1,32 @@
+tsc --init
+npm init -y
+
+change target in tsconfi.json to     "target": "ES2022",  
+                                    "module": "NodeNext",
+                                    "moduleResolution": "NodeNext", 
+
+Add following in the package.json
+  "type": "module",
+
+  run the following command
+  npm i  @types/node -D
+  it will add types in the node module
+  in package.json it will add the 
+    dev dependencies (required at the development time)
+
+run tsc command it will gnerate index.js
+
+run node index.js it will give the output
+
+npm i inquirer it will install following in the package.json
+    "dependencies": {
+    "inquirer": "^9.1.4"
+  }
+
+  npm i @types/inquirer     it will give the inellisense in the IDE
+
+  add gitignore file at root and add following in it   npm i @types/inquirer
+
+npm i chalk chalk-animation
+these are already i node_modules
+
