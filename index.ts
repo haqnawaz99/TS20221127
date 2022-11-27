@@ -9,7 +9,7 @@ const sleep = () =>{
     })
 }
 async function Welcome(){
-   let rainbowTitle =  chalkAnimation.rainbow('it is rainbow text');
+   let rainbowTitle =  chalkAnimation.rainbow('Just wait we are creatig environment for you');
    await sleep();
    rainbowTitle.stop();
 }
@@ -17,7 +17,7 @@ async function Welcome(){
 
 
 async function askQuestions() {
-    await inquirer
+     const answer = await inquirer
    .prompt([{
          type:"list",
          name:"operator",
@@ -35,25 +35,23 @@ async function askQuestions() {
         message:"Please enter number 2"
     },
 
-])
-    .then((answer)=>{
-        //console.log(answer);
-        if (answer.operator =="Add") {
-            console.log(`${answer.num1} + ${answer.num2} = ${answer.num1 + answer.num2}`)
-        } else if (answer.operator =="Subtract") {
-            console.log(`${answer.num1} - ${answer.num2} = ${answer.num1 - answer.num2}`)
-        }
-        else if (answer.operator =="Multiply") {
-            console.log(`${answer.num1} * ${answer.num2} = ${answer.num1 * answer.num2}`)
-        }
-        else if (answer.operator =="Divide") {
-            console.log(`${answer.num1} / ${answer.num2} = ${answer.num1 / answer.num2}`)
-        }
-    })
+]);
+    if (answer.operator =="Add") {
+        console.log(chalk.blue(`${answer.num1} + ${answer.num2} = ${answer.num1 + answer.num2}`))
+    } else if (answer.operator =="Subtract") {
+        console.log(chalk.blue(`${answer.num1} - ${answer.num2} = ${answer.num1 - answer.num2}`))
+    }
+    else if (answer.operator =="Multiply") {
+        console.log(chalk.blue(`${answer.num1} * ${answer.num2} = ${answer.num1 * answer.num2}`))
+    }
+    else if (answer.operator =="Divide") {
+        console.log(chalk.blue(`${answer.num1} / ${answer.num2} = ${answer.num1 / answer.num2}`))
+    }
 };
 
 async function startAgain( ) {
     do {
+        await Welcome();
         await askQuestions();
     var again = await inquirer
     .prompt({
@@ -67,5 +65,5 @@ async function startAgain( ) {
 
 startAgain();
 
-//Welcome();
+//
 
