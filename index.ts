@@ -40,6 +40,14 @@ async function askQuestions() {
         //console.log(answer);
         if (answer.operator =="Add") {
             console.log(`${answer.num1} + ${answer.num2} = ${answer.num1 + answer.num2}`)
+        } else if (answer.operator =="Subtract") {
+            console.log(`${answer.num1} - ${answer.num2} = ${answer.num1 - answer.num2}`)
+        }
+        else if (answer.operator =="Multiply") {
+            console.log(`${answer.num1} * ${answer.num2} = ${answer.num1 * answer.num2}`)
+        }
+        else if (answer.operator =="Divide") {
+            console.log(`${answer.num1} / ${answer.num2} = ${answer.num1 / answer.num2}`)
         }
     })
 };
