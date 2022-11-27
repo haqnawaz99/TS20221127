@@ -1,4 +1,5 @@
 #!usr/bin/env node
+import inquirer from "inquirer";
 import chalkAnimation from "chalk-animation";
 const sleep = () => {
     return new Promise((res) => {
@@ -10,4 +11,32 @@ async function Welcome() {
     await sleep();
     rainbowTitle.stop();
 }
-Welcome();
+async function askQuestions() {
+    inquirer
+        .prompt([{
+            type: "list",
+            name: "operator",
+            message: "Which operation you want to perform\n",
+            choices: ["Add", "Subtract", "Multiply", "Divide"]
+        },
+        {
+            type: "number",
+            name: "num1",
+            message: "Please enter number 1"
+        },
+        {
+            type: "number",
+            name: "num2",
+            message: "Please enter number 2"
+        },
+    ])
+        .then((answer) => {
+        //console.log(answer);
+        if (answer.operator == "Add") {
+            console.log(`${answer.num1} + ${answer.num2} = ${answer.num1 + answer.num2}`);
+        }
+    });
+}
+;
+askQuestions();
+//Welcome();
