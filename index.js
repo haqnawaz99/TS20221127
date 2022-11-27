@@ -12,7 +12,7 @@ async function Welcome() {
     rainbowTitle.stop();
 }
 async function askQuestions() {
-    inquirer
+    await inquirer
         .prompt([{
             type: "list",
             name: "operator",
@@ -47,5 +47,16 @@ async function askQuestions() {
     });
 }
 ;
-askQuestions();
+async function startAgain() {
+    do {
+        await askQuestions();
+        var again = await inquirer
+            .prompt({
+            type: "input",
+            name: "restart",
+            message: "Do you want to continue? Press y or n:"
+        });
+    } while (again.restart == "y" || again.restart == "Y");
+}
+startAgain();
 //Welcome();
